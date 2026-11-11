@@ -1,10 +1,11 @@
-# Wyrmhold
+<p align="center"><img src="icono/icono-1024.png" width="140" alt="Wyrmhold"></p>
+
+<h1 align="center">Wyrmhold</h1>
+<p align="center"><b>強力なパスワード・パスフレーズ・PIN — このコンピューターで作り、どこにも保存しません。</b></p>
 
 Gabriel Castiglia · 2026年11月10日 · バージョン 1.0.0 · GPL-2.0-only
 
 [English](README.md) · [Español](README.es.md) · 日本語
-
-リポジトリ: <https://github.com/Gabriel-Castiglia/wyrmhold>
 
 Windows 版: <https://github.com/Gabriel-Castiglia/wyrmhold-windows>
 
@@ -25,7 +26,7 @@ Wyrmhold は、強力なランダムパスワード、パスフレーズ、PIN �
 
 ## インストール
 
-[リリースページ](https://github.com/Gabriel-Castiglia/wyrmhold/releases)から `Wyrmhold-<バージョン>.pkg` をダウンロードして開きます。インストーラは Mac の言語に合わせて日本語、英語、スペイン語で表示されます。`Wyrmhold.app` を `/Applications` に入れ、実行中のものがあれば先に終了させます。新しいパッケージをインストールしても設定はそのまま残ります。
+[リリースページ](https://github.com/Gabriel-Castiglia/wyrmhold/releases/latest)から `Wyrmhold-<バージョン>.pkg` をダウンロードして開きます。インストーラは Mac の言語に合わせて日本語、英語、スペイン語で表示されます。`Wyrmhold.app` を `/Applications` に入れ、実行中のものがあれば先に終了させます。新しいパッケージをインストールしても設定はそのまま残ります。
 
 パッケージは Apple の Developer ID で署名されていないため、初回は macOS が開くのを拒みます(「Apple は検証できませんでした…」)。「システム設定」→「プライバシーとセキュリティ」を開き、`Wyrmhold-<バージョン>.pkg` についてのメッセージまでスクロールして「このまま開く」をクリックし、確認します。各リリースの `SHA256SUMS.txt` で、先にダウンロードを確認できます:
 

@@ -1,10 +1,11 @@
-# Wyrmhold
+<p align="center"><img src="icono/icono-1024.png" width="140" alt="Wyrmhold"></p>
+
+<h1 align="center">Wyrmhold</h1>
+<p align="center"><b>Contraseñas, frases y PIN fuertes — se hacen en tu computadora y no se guardan en ningún lado.</b></p>
 
 Gabriel Castiglia · 10 de noviembre de 2026 · versión 1.0.0 · GPL-2.0-only
 
 [English](README.md) · Español · [日本語](README.ja.md)
-
-Repositorio: <https://github.com/Gabriel-Castiglia/wyrmhold>
 
 Versión para Windows: <https://github.com/Gabriel-Castiglia/wyrmhold-windows>
 
@@ -28,7 +29,7 @@ tesoro. El ícono es el dragón alado de Athanasius Kircher (*Mundus Subterraneu
 
 ## Instalación
 
-Bajá `Wyrmhold-<versión>.pkg` de la [página de versiones](https://github.com/Gabriel-Castiglia/wyrmhold/releases)
+Bajá `Wyrmhold-<versión>.pkg` de la [página de versiones](https://github.com/Gabriel-Castiglia/wyrmhold/releases/latest)
 y abrilo. El instalador está en español, inglés o japonés, según el idioma de la Mac. Pone `Wyrmhold.app` en
 `/Applications` y, si había una copia abierta, la cierra antes; instalar un paquete más nuevo conserva la
 configuración.

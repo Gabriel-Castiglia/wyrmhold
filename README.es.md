@@ -3,7 +3,7 @@
 <h1 align="center">Wyrmhold</h1>
 <p align="center"><b>Contraseñas, frases y PIN fuertes — se hacen en tu computadora y no se guardan en ningún lado.</b></p>
 
-Gabriel Castiglia · 10 de noviembre de 2026 · versión 1.0.0 · GPL-2.0-only
+Gabriel Castiglia · 20 de noviembre de 2026 · versión 1.1.0 · GPL-2.0-only
 
 [English](README.md) · Español · [日本語](README.ja.md)
 
@@ -40,7 +40,7 @@ pudo verificar…»). Abrí Configuración del Sistema → Privacidad y segurida
 versión podés comprobar la descarga antes:
 
 ```
-shasum -a 256 Wyrmhold-1.0.0.pkg
+shasum -a 256 Wyrmhold-1.1.0.pkg
 ```
 
 Para desinstalarlo, cerrá Wyrmhold, arrastrá `/Applications/Wyrmhold.app` a la papelera y, si querés borrar
@@ -109,8 +109,23 @@ predeterminado (20 caracteres) son unos 122 bits.
 
 Cada copia es solo para esta Mac, así que el Portapapeles Universal nunca la pasa a tus otros dispositivos, y va
 marcada `org.nspasteboard.ConcealedType`, que los gestores de portapapeles respetan dejándola fuera de su
-historial. Con «Borrar portapapeles a los 30 s» encendido, una contraseña copiada se borra 30 segundos después,
-o al cerrar Wyrmhold, salvo que se haya copiado otra cosa mientras tanto.
+historial. Con «Borrar portapapeles a los» encendido (viene así), una contraseña copiada se borra cuando pasa el
+tiempo elegido al lado del interruptor (10 s, 30 s, 1, 2, 5 o 10 minutos; 2 minutos si no lo cambiás), o enseguida
+al salir de Wyrmhold o al cerrar la sesión. Se borra solo si el portapapeles sigue teniendo exactamente lo que puso
+Wyrmhold: el contador de cambios del portapapeles, o si no un SHA-256 de su texto (el texto nunca se guarda), así que
+el mismo texto devuelto por una herramienta de portapapeles se borra igual y lo que copies después queda intacto.
+Apagado, lo copiado queda hasta que copies otra cosa. `-clearafter:90`, `-clearafter:2m` o `-clearafter:off` lo
+fija para una sesión sin guardarlo.
+
+## Actualizaciones
+
+Ayuda → Buscar actualizaciones le pregunta a GitHub por la última versión, y lo mismo hace un chequeo diario (Ayuda →
+Buscar actualizaciones todos los días, `CheckUpdates` en la configuración). Si hay una más nueva, una sola pregunta:
+Actualizar ahora, Ver novedades o Más tarde. Después todo pasa solo: el paquete se descarga y se compara con el
+`SHA256SUMS.txt` de la versión (si no coincide se borra sin abrirlo); la app que trae tiene que tener el mismo
+identificador, la versión anunciada y una firma que cumpla la de la app instalada. Wyrmhold se cierra, la app nueva
+ocupa el lugar de la vieja y se abre. Una copia que no es `/Applications/Wyrmhold.app` recibe la página de descarga;
+una instalada por otro usuario abre el paquete ya comprobado en el Instalador.
 
 ## Configuración
 
@@ -181,7 +196,7 @@ parejos (chi cuadrado).
 `docs/img`. `tools/make_icon.py` dibuja el ícono (`icono/icono-1024.png`) y la capa que la app tiñe
 (`assets/icon_layer.wyi`); necesita Python con numpy, opencv-python, scipy y Pillow.
 
-Las herramientas con que se compiló y probó Wyrmhold 1.0.0 están en la tabla del
+Las herramientas con que se compiló y probó Wyrmhold 1.1.0 están en la tabla del
 [README en inglés](README.md#building-from-source).
 
 ## Estructura

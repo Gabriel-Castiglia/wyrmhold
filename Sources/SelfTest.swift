@@ -123,8 +123,27 @@ enum SelfTest {
         _ = cb.copy(sample, clearLater: false)
         pb.clearContents(); pb.setString("someone else", forType: .string)
         check("clipboard: left alone after another copy", !cb.wipeIfOurs() && pb.string(forType: .string) == "someone else")
+        _ = cb.copy(sample, clearLater: false)
+        pb.clearContents(); pb.setString(sample, forType: .string)
+        check("clipboard: the same text put back is still ours", cb.wipeIfOurs() && pb.string(forType: .string) == nil)
+        cb.seconds = 120
+        _ = cb.copy(sample, clearLater: true)
+        check("clipboard: the countdown starts at the chosen time", cb.secondsLeft == 120, "\(cb.secondsLeft)")
+        cb.wipeAtQuit()
+        check("clipboard: a pending copy goes at quit", pb.string(forType: .string) == nil)
+        _ = cb.copy(sample, clearLater: false)
+        cb.wipeAtQuit()
+        check("clipboard: with clearing off a copy stays at quit", pb.string(forType: .string) == sample)
+        cb.seconds = AppModel.shared.clearSeconds
+        check("clipboard: -clearafter: values", Clipboard.parse("90") == 90 && Clipboard.parse("2m") == 120 &&
+              Clipboard.parse("30s") == 30 && Clipboard.parse("off") == 0 && Clipboard.parse("2") == nil &&
+              Clipboard.parse("61m") == nil && Clipboard.parse("x") == nil)
+        check("clipboard: drop-down labels", Clipboard.label(120, seconds: "%d s", minutes: "%d min") == "2 min" &&
+              Clipboard.label(30, seconds: "%d s", minutes: "%d min") == "30 s")
         pb.clearContents()
         if !saved.isEmpty { pb.writeObjects(saved) }
+
+        for (what, ok) in SelfUpdate.selfTest() { check(what, ok) }
 
         FileHandle.standardError.write(Data((failures == 0 ? "self-test: all passed\n" : "self-test: \(failures) failed\n").utf8))
         return failures == 0

@@ -17,7 +17,7 @@ RAIZ="${0:A:h:h}"
 cd "$RAIZ"
 [[ "${FIRMA:-}" == adhoc ]] || source scripts/firma.sh
 
-VERSION="1.0.0"
+VERSION="1.1.0"
 COMPILACION="1"
 FECHA="2026-11-10"
 APP="build/Wyrmhold.app"

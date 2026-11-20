@@ -86,7 +86,14 @@ final class AppModel: ObservableObject {
 
     @Published var choices = Choices() { didSet { if choices != oldValue { optionsChanged() } } }
     @Published var count = 5 { didSet { if count != oldValue { save(); generate() } } }
-    @Published var clearClipboard = true { didSet { save() } }
+    @Published var clearClipboard = true { didSet { if !fromArgument { save() } } }
+    /// Seconds a copy stays before it is wiped (5 to 3600; 2 minutes by default).
+    @Published var clearSeconds = Clipboard.defaultSeconds {
+        didSet { Clipboard.shared.seconds = clearSeconds; if !fromArgument { save() } }
+    }
+    /// -clearafter: set the two above for this session: they are saved only when changed in the window.
+    var fromArgument = false
+    @Published var checkUpdates = true { didSet { save() } }
     @Published var theme = ThemeChoice.system { didSet { save(); applyTheme() } }
     @Published var accent = 0 { didSet { save(); Icon.applyToDock(accent: accent) } }
     @Published var lang = Lang.en { didSet { save(); status = T(.stReady) } }
@@ -304,6 +311,8 @@ final class AppModel: ObservableObject {
         choices = c
         count = int("Count", 5, 1, 50)
         clearClipboard = bool("ClearClipboard", true)
+        clearSeconds = int("ClearSeconds", Clipboard.defaultSeconds, Clipboard.range.lowerBound, Clipboard.range.upperBound)
+        checkUpdates = bool("CheckUpdates", true)
         theme = ThemeChoice(rawValue: int("Theme", 0, 0, 2)) ?? .system
         accent = int("Accent", 0, 0, ACCENTS.count - 1)
         lang = Lang(rawValue: int("Language", AppModel.macLanguage.rawValue, 0, Lang.allCases.count - 1)) ?? .en
@@ -330,7 +339,7 @@ final class AppModel: ObservableObject {
             "Exclude": asciiOnly(c.charExclude), "Words": c.words, "Separator": c.separator,
             "Capitalize": c.capitalize, "AddNumber": c.addNumber, "PinLength": c.pinLength,
             "PinNoRepeat": c.pinNoRepeat, "PinNoSequence": c.noSequence, "PinExclude": asciiOnly(c.pinExclude),
-            "ClearClipboard": clearClipboard, "Theme": theme.rawValue, "Accent": accent, "Language": lang.rawValue,
+            "ClearClipboard": clearClipboard, "ClearSeconds": clearSeconds, "CheckUpdates": checkUpdates, "Theme": theme.rawValue, "Accent": accent, "Language": lang.rawValue,
         ]
         for (k, v) in values { d.set(v, forKey: k) }
     }

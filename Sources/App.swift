@@ -21,7 +21,7 @@ import SwiftUI
 // MARK: copy and save
 
 extension AppModel {
-    private var clearSuffix: String { clearClipboard ? format(.stClearIn, Int32(Clipboard.seconds)) : "" }
+    private var clearSuffix: String { clearClipboard ? format(.stClearIn, Int32(Clipboard.shared.secondsLeft)) : "" }
 
     func copy(_ i: Int) {
         guard passwords.indices.contains(i) else { return }
@@ -119,6 +119,12 @@ final class AppDelegate: NSObject, NSApplicationDelegate, NSWindowDelegate {
         m.persist = shot == nil && !selfTest
         m.load()
         if shot != nil { applyShotArguments() }
+        if let v = CLI.value("clearafter:", in: CommandLine.arguments), let secs = Clipboard.parse(v) {
+            m.fromArgument = true
+            if secs == 0 { m.clearClipboard = false } else { m.clearClipboard = true; m.clearSeconds = secs }
+            m.fromArgument = false
+        }
+        Clipboard.shared.seconds = m.clearSeconds
         m.applyTheme()
         Icon.applyToDock(accent: m.accent)
         m.generate()
@@ -134,6 +140,17 @@ final class AppDelegate: NSObject, NSApplicationDelegate, NSWindowDelegate {
             DispatchQueue.main.async { self?.m.refreshDark() }
         }
 
+        let up = SelfUpdate.shared
+        up.appName = "Wyrmhold"
+        up.repo = "Gabriel-Castiglia/wyrmhold"
+        up.version = appVersion
+        up.language = { [weak self] in ["en", "ja", "es"][self?.m.lang.rawValue ?? 0] }
+        up.dailyCheckOn = { [weak self] in self?.m.checkUpdates ?? false }
+        if m.persist {
+            up.cleanUpAtStart()
+            DispatchQueue.main.asyncAfter(deadline: .now() + 5) { up.checkDaily() }
+        }
+
         if selfTest {
             DispatchQueue.main.async { exit(SelfTest.run(model: self.m) ? 0 : 1) }
         } else if let path = shot {
@@ -144,7 +161,8 @@ final class AppDelegate: NSObject, NSApplicationDelegate, NSWindowDelegate {
     func applicationShouldTerminateAfterLastWindowClosed(_ sender: NSApplication) -> Bool { true }
 
     func applicationWillTerminate(_ note: Notification) {
-        Clipboard.shared.wipeAtQuit(enabled: m.clearClipboard)
+        Clipboard.shared.wipeAtQuit()
+        SelfUpdate.shared.finishIfStaged()
     }
 
     private func applyShotArguments() {
@@ -306,6 +324,9 @@ final class AppDelegate: NSObject, NSApplicationDelegate, NSWindowDelegate {
         bar.addItem(window)
         let help = top(l(.menuHelp), [
             item(l(.menuHelptopics), key: "?") { [weak self] in self?.showHelp() },
+            .separator(),
+            item(x(.menuUpdate)) { SelfUpdate.shared.check(interactive: true) },
+            item(x(.menuUpdateAuto), on: { [weak self] in self?.m.checkUpdates == true }) { [weak self] in self?.m.checkUpdates.toggle() },
         ])
         bar.addItem(help)
         NSApp.mainMenu = bar

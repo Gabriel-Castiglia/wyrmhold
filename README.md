@@ -3,7 +3,7 @@
 <h1 align="center">Wyrmhold</h1>
 <p align="center"><b>Strong passwords, passphrases and PINs — made on your computer, stored nowhere.</b></p>
 
-Gabriel Castiglia · November 10, 2026 · version 1.0.0 · GPL-2.0-only
+Gabriel Castiglia · November 20, 2026 · version 1.1.0 · GPL-2.0-only
 
 English · [Español](README.es.md) · [日本語](README.ja.md)
 
@@ -41,7 +41,7 @@ could not verify…"). Open System Settings → Privacy & Security, scroll to th
 check the download first:
 
 ```
-shasum -a 256 Wyrmhold-1.0.0.pkg
+shasum -a 256 Wyrmhold-1.1.0.pkg
 ```
 
 To uninstall, quit Wyrmhold, drag `/Applications/Wyrmhold.app` to the Trash and, to remove the settings too,
@@ -108,8 +108,22 @@ an attacker who has the file and tries 100 billion passwords a second. The defau
 
 Every copy is for this Mac only, so Universal Clipboard never sends it to your other devices, and it is marked
 `org.nspasteboard.ConcealedType`, which clipboard managers honour by leaving it out of their history. With
-"Clear clipboard after 30 s" on, a copied password is wiped 30 seconds later, or when Wyrmhold quits, unless
-something else was copied in between.
+"Clear clipboard after" on (the default), a copied password is wiped when the time chosen beside the switch is up
+(10 s, 30 s, 1, 2, 5 or 10 minutes; 2 minutes unless you change it), or at once when Wyrmhold quits or the session
+ends. It is wiped only while the clipboard still holds exactly what Wyrmhold put there: the pasteboard's change count,
+or else a SHA-256 of its text (the text itself is never kept), so the same text put back by a clipboard tool is still
+wiped and anything else you copy is left alone. Switched off, copies stay until you copy something else.
+`-clearafter:90`, `-clearafter:2m` or `-clearafter:off` sets it for one session without saving it.
+
+## Updates
+
+Help → Check for Updates asks GitHub for the latest release, and so does a daily check (Help → Check for Updates
+Daily, `CheckUpdates` in the settings). When there is a newer one, one question: Update now, What's new or Later.
+Then it all happens alone: the package is downloaded and checked against the release's `SHA256SUMS.txt` (deleted and
+never opened if it does not match); the app inside it must have the same identifier, the version announced and a
+signature that meets the one of the installed app. Wyrmhold quits, the new app takes the place of the old one and
+opens. A copy that is not `/Applications/Wyrmhold.app` is offered the download page; one installed by another user
+opens the checked package in Installer.
 
 ## Settings
 
@@ -179,14 +193,14 @@ characters (chi-square).
 `docs/img`. `tools/make_icon.py` draws the icon (`icono/icono-1024.png`) and the layer the app tints
 (`assets/icon_layer.wyi`); it needs Python with numpy, opencv-python, scipy and Pillow.
 
-Wyrmhold 1.0.0 was built and checked with:
+Wyrmhold 1.1.0 was built and checked with:
 
 | Tool | Version |
 |---|---|
-| macOS | 27.2 (arm64, Apple M3) |
+| macOS | 27.2.1 (arm64, Apple M3) |
 | Command Line Tools / Swift | 27.2 / Swift 6.4.2 |
-| pandoc (manuals) | 3.13 |
-| Google Chrome (manuals) | 157.0.8103.39 |
+| pandoc (manuals) | 3.14 |
+| Google Chrome (manuals) | 158.0.8127.37 |
 | Python (icon) | 3.13.17 with numpy 2.5.4, opencv-python 5.0.0, scipy 1.18.1, Pillow 12.3.0 |
 | Python (checks) | 3 with the standard library only |
 

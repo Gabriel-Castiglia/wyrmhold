@@ -11,6 +11,7 @@ enum X: Int, CaseIterable {
     case menuClose, menuEdit, menuCut, menuCopy, menuPaste, menuSelectAll
     case menuWindow, menuMinimize, menuZoom
     case copyOne
+    case tipClearTime, clearSeconds, clearMinutes, menuUpdate, menuUpdateAuto
 }
 
 let MAC_STRINGS: [[String]] = [
@@ -29,6 +30,11 @@ let MAC_STRINGS: [[String]] = [
     ["Minimize", "しまう", "Minimizar"],
     ["Zoom", "拡大/縮小", "Zoom"],
     ["Copy this password", "このパスワードをコピー", "Copiar esta contraseña"],
+    ["How long a copied password stays on the clipboard. Choosing a time also switches clearing on.", "コピーしたパスワードをクリップボードに残す時間。時間を選ぶと自動消去もオンになります。", "Cuánto tiempo queda en el portapapeles una contraseña copiada. Elegir un tiempo también enciende el borrado."],
+    ["%d s", "%d秒後", "%d s"],
+    ["%d min", "%d分後", "%d min"],
+    ["Check for Updates…", "アップデートを確認…", "Buscar actualizaciones…"],
+    ["Check for Updates Daily", "毎日自動でアップデートを確認", "Buscar actualizaciones todos los días"],
 ]
 
 extension AppModel {

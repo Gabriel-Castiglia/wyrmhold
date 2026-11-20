@@ -352,6 +352,11 @@ struct ListCard: View {
     @ObservedObject var m: AppModel
     @FocusState private var focused: Bool
 
+    /// The six choices, and the time set in the .plist or by -clearafter: when it is not one of them.
+    private var clearChoices: [Int] {
+        Clipboard.choices.contains(m.clearSeconds) ? Clipboard.choices : (Clipboard.choices + [m.clearSeconds]).sorted()
+    }
+
     var body: some View {
         let p = m.palette
         VStack(alignment: .leading, spacing: 8) {
@@ -360,6 +365,14 @@ struct ListCard: View {
                 Spacer()
                 Toggle(m.T(.optClear), isOn: $m.clearClipboard).toggleStyle(.switch).controlSize(.small)
                     .help(m.T(.tipClear))
+                Picker("", selection: Binding(get: { m.clearSeconds },
+                                              set: { m.clearSeconds = $0; m.clearClipboard = true })) {
+                    ForEach(clearChoices, id: \.self) { s in
+                        Text(Clipboard.label(s, seconds: m.extra(.clearSeconds), minutes: m.extra(.clearMinutes))).tag(s)
+                    }
+                }
+                .labelsHidden().pickerStyle(.menu).controlSize(.small).fixedSize()
+                .help(m.extra(.tipClearTime))
                 Button { m.saveAll() } label: { Image(systemName: "square.and.arrow.down") }
                     .buttonStyle(.borderless).help(m.T(.tipSave)).disabled(m.passwords.isEmpty)
                 Button { m.copyAll() } label: { Image(systemName: "doc.on.doc") }

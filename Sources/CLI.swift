@@ -1,12 +1,12 @@
-// Wyrmhold: passwords from the command line, with no window.
+// Forja: passwords from the command line, with no window.
 // Copyright (C) 2026 Gabriel Castiglia. Licensed under the GNU GPL, version 2 only.
 // Date: November 10, 2026
 // SPDX-License-Identifier: GPL-2.0-only
 //
 // The same switches as the Windows version, written with a dash:
 //
-//   Wyrmhold.app/Contents/MacOS/Wyrmhold -out:FILE [-count:N] [options]
-//   Wyrmhold.app/Contents/MacOS/Wyrmhold -entropy:FILE [options]
+//   Forja.app/Contents/MacOS/Forja -out:FILE [-count:N] [options]
+//   Forja.app/Contents/MacOS/Forja -entropy:FILE [options]
 //
 //   -mode:chars|words|pin  -len:N  -words:N  -count:N  -classes:luds
 //   -symbols:basic|all|min|custom:LIST  -exclude:LIST  -ambiguous  -norepeat  -startletter

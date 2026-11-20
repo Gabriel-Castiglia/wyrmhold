@@ -1,11 +1,11 @@
 """
-Wyrmhold -- checks the generator options through the command line,
+Forja -- checks the generator options through the command line,
 independently of the C code.
 Copyright (C) 2026 Gabriel Castiglia. Licensed under the GNU GPL, version 2 only.
 Date: November 10, 2026
 SPDX-License-Identifier: GPL-2.0-only
 
-    python3 tools/check_options.py build/Wyrmhold.app/Contents/MacOS/Wyrmhold
+    python3 tools/check_options.py build/Forja.app/Contents/MacOS/Forja
 
 For each case it asks the program for passwords (-out) and checks every one against the
 rules in Python: alphabet, required kinds, exclusions, no repeated neighbours, first letter,

@@ -1,13 +1,25 @@
 #!/bin/sh
-# Wyrmhold package: quits a running Wyrmhold before it is replaced.
+# Forja package: quits a running Forja before it is replaced, and removes Wyrmhold, the name of this app up to
+# 1.1 (its settings come over when Forja starts; see Sources/main.swift).
 # Copyright (C) 2026 Gabriel Castiglia. Licensed under the GNU GPL, version 2 only.
 # SPDX-License-Identifier: GPL-2.0-only
 user=$(/usr/bin/stat -f %Su /dev/console)
-if /usr/bin/pgrep -xq Wyrmhold && [ -n "$user" ] && [ "$user" != root ]; then
-    uid=$(/usr/bin/id -u "$user")
-    /bin/launchctl asuser "$uid" /usr/bin/sudo -u "$user" /usr/bin/osascript \
-        -e 'tell application id "io.github.gabriel-castiglia.wyrmhold" to quit' >/dev/null 2>&1
-    sleep 2
+
+quit() {   # $1: process name, $2: bundle identifier
+    if /usr/bin/pgrep -xq "$1" && [ -n "$user" ] && [ "$user" != root ]; then
+        uid=$(/usr/bin/id -u "$user")
+        /bin/launchctl asuser "$uid" /usr/bin/sudo -u "$user" /usr/bin/osascript \
+            -e "tell application id \"$2\" to quit" >/dev/null 2>&1
+        sleep 1
+    fi
+    /usr/bin/pkill -x "$1" 2>/dev/null
+}
+
+quit Forja io.github.gabriel-castiglia.forja
+
+old=/Applications/Wyrmhold.app
+if [ -d "$old" ] && [ "$(/usr/bin/defaults read "$old/Contents/Info" CFBundleIdentifier 2>/dev/null)" = io.github.gabriel-castiglia.wyrmhold ]; then
+    quit Wyrmhold io.github.gabriel-castiglia.wyrmhold
+    /bin/rm -rf "$old"
 fi
-/usr/bin/pkill -x Wyrmhold 2>/dev/null
 exit 0

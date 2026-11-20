@@ -1,4 +1,4 @@
-// Wyrmhold: the texts that only the Mac version has (the standard menu commands).
+// Forja: the texts that only the Mac version has (the standard menu commands).
 // Copyright (C) 2026 Gabriel Castiglia. Licensed under the GNU GPL, version 2 only.
 // Date: November 10, 2026
 // SPDX-License-Identifier: GPL-2.0-only
@@ -15,11 +15,11 @@ enum X: Int, CaseIterable {
 }
 
 let MAC_STRINGS: [[String]] = [
-    ["About Wyrmhold", "Wyrmhold について", "Acerca de Wyrmhold"],
-    ["Hide Wyrmhold", "Wyrmhold を非表示", "Ocultar Wyrmhold"],
+    ["About Forja", "Forja について", "Acerca de Forja"],
+    ["Hide Forja", "Forja を非表示", "Ocultar Forja"],
     ["Hide Others", "ほかを非表示", "Ocultar otros"],
     ["Show All", "すべてを表示", "Mostrar todo"],
-    ["Quit Wyrmhold", "Wyrmhold を終了", "Salir de Wyrmhold"],
+    ["Quit Forja", "Forja を終了", "Salir de Forja"],
     ["Close", "閉じる", "Cerrar"],
     ["Edit", "編集", "Edición"],
     ["Cut", "カット", "Cortar"],

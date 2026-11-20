@@ -1,4 +1,4 @@
-// Wyrmhold: theme (light, dark or as macOS) and the twelve accent colours.
+// Forja: theme (light, dark or as macOS) and the twelve accent colours.
 // Copyright (C) 2026 Gabriel Castiglia. Licensed under the GNU GPL, version 2 only.
 // Date: November 10, 2026
 // SPDX-License-Identifier: GPL-2.0-only

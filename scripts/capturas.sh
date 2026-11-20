@@ -9,13 +9,13 @@
 # the GNU General Public License, version 2, as published by the Free Software Foundation.
 # It is distributed WITHOUT ANY WARRANTY. See the LICENSE file for details.
 #
-# Uses build/Wyrmhold.app (scripts/compilar.sh). The screenshot mode never reads or writes the
+# Uses build/Forja.app (scripts/compilar.sh). The screenshot mode never reads or writes the
 # app's settings; the passwords in the pictures are random ones made on the spot.
 
 set -euo pipefail
 RAIZ="${0:A:h:h}"
 cd "$RAIZ"
-B=build/Wyrmhold.app/Contents/MacOS/Wyrmhold
+B=build/Forja.app/Contents/MacOS/Forja
 [[ -x $B ]] || { echo "build the app first: scripts/compilar.sh" >&2; exit 1 }
 mkdir -p docs/img
 for idioma in en es ja; do

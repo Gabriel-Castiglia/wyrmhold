@@ -1,21 +1,21 @@
-<p align="center"><img src="icono/icono-1024.png" width="140" alt="Wyrmhold"></p>
+<p align="center"><img src="icono/icono-1024.png" width="140" alt="Forja"></p>
 
-<h1 align="center">Wyrmhold</h1>
+<h1 align="center">Forja</h1>
 <p align="center"><b>強力なパスワード・パスフレーズ・PIN — このコンピューターで作り、どこにも保存しません。</b></p>
 
-Gabriel Castiglia · 2026年11月20日 · バージョン 1.1.0 · GPL-2.0-only
+Gabriel Castiglia · 2026年11月20日 · バージョン 3.0.0 · GPL-2.0-only
 
 [English](README.md) · [Español](README.es.md) · 日本語
 
-Windows 版: <https://github.com/Gabriel-Castiglia/wyrmhold-windows>
+Windows 版: <https://github.com/Gabriel-Castiglia/forja-windows>
 
-PDF マニュアル: [`docs/Wyrmhold-manual-ja.pdf`](docs/Wyrmhold-manual-ja.pdf)
+PDF マニュアル: [`docs/Forja-manual-ja.pdf`](docs/Forja-manual-ja.pdf)
 
 > Apple シリコン (arm64) 搭載の macOS 15 以降専用です。Intel プロセッサ搭載の Mac 用はありません。
 
-Wyrmhold は、強力なランダムパスワード、パスフレーズ、PIN をお使いの Mac の中で作ります。メールで送る zip や 7z ファイル、新しいアカウント、Wi-Fi、錠前などに使えます。何も保存されず、どこにも送信されません。パスワードは、コピーまたは保存するまでウィンドウの中にだけ存在します。画面は日本語、英語、スペイン語に対応しています。
+Forja は、強力なランダムパスワード、パスフレーズ、PIN をお使いの Mac の中で作ります。メールで送る zip や 7z ファイル、新しいアカウント、Wi-Fi、錠前などに使えます。何も保存されず、どこにも送信されません。パスワードは、コピーまたは保存するまでウィンドウの中にだけ存在します。画面は日本語、英語、スペイン語に対応しています。
 
-*Wyrm* は古英語で「竜」、*hold* は「砦」。wyrmhold は竜が宝を守る砦のことです。アイコンは、アタナシウス・キルヒャー『地下世界』(1665 年)の翼のある竜が塔の上に横たわる姿です。
+Forja はスペイン語で「鍛冶場」。金床の上で槌を打って金属を形づくるように、ここでは一つひとつのパスワードが純粋な偶然から生まれます。アイコンはロンドンの鍛冶屋の商用カード(1766 年ごろ)の金床と槌です。バージョン 1.1 までは Wyrmhold という名前でした。Forja をインストールすると Wyrmhold は削除され、設定は Forja の初回起動時に引き継がれます。
 
 ![メインウィンドウ](docs/img/window-ja.png)
 
@@ -26,15 +26,15 @@ Wyrmhold は、強力なランダムパスワード、パスフレーズ、PIN �
 
 ## インストール
 
-[リリースページ](https://github.com/Gabriel-Castiglia/wyrmhold/releases/latest)から `Wyrmhold-<バージョン>.pkg` をダウンロードして開きます。インストーラは Mac の言語に合わせて日本語、英語、スペイン語で表示されます。`Wyrmhold.app` を `/Applications` に入れ、実行中のものがあれば先に終了させます。新しいパッケージをインストールしても設定はそのまま残ります。
+[リリースページ](https://github.com/Gabriel-Castiglia/forja/releases/latest)から `Forja-<バージョン>.pkg` をダウンロードして開きます。インストーラは Mac の言語に合わせて日本語、英語、スペイン語で表示されます。`Forja.app` を `/Applications` に入れ、実行中のものがあれば先に終了させます。新しいパッケージをインストールしても設定はそのまま残ります。
 
-パッケージは Apple の Developer ID で署名されていないため、初回は macOS が開くのを拒みます(「Apple は検証できませんでした…」)。「システム設定」→「プライバシーとセキュリティ」を開き、`Wyrmhold-<バージョン>.pkg` についてのメッセージまでスクロールして「このまま開く」をクリックし、確認します。各リリースの `SHA256SUMS.txt` で、先にダウンロードを確認できます:
+パッケージは Apple の Developer ID で署名されていないため、初回は macOS が開くのを拒みます(「Apple は検証できませんでした…」)。「システム設定」→「プライバシーとセキュリティ」を開き、`Forja-<バージョン>.pkg` についてのメッセージまでスクロールして「このまま開く」をクリックし、確認します。各リリースの `SHA256SUMS.txt` で、先にダウンロードを確認できます:
 
 ```
-shasum -a 256 Wyrmhold-1.1.0.pkg
+shasum -a 256 Forja-3.0.0.pkg
 ```
 
-アンインストールするには、Wyrmhold を終了して `/Applications/Wyrmhold.app` をゴミ箱に入れます。設定も消す場合は `defaults delete io.github.gabriel-castiglia.wyrmhold` を実行します。
+アンインストールするには、Forja を終了して `/Applications/Forja.app` をゴミ箱に入れます。設定も消す場合は `defaults delete io.github.gabriel-castiglia.forja` を実行します。
 
 ## 使い方
 
@@ -57,7 +57,7 @@ shasum -a 256 Wyrmhold-1.1.0.pkg
 
 ### テーマと色
 
-「Wyrmhold」→「テーマと色…」(⌘,) で、外観(macOS に合わせる、ライト、ダーク)と 12 色から 1 色を選びます。色はウィンドウの帯、ボタン、Dock のアイコンに使われます(既定は黒)。Finder と Launchpad のアイコンは黒のままです。変えるとアプリの署名が壊れるためです。
+「Forja」→「テーマと色…」(⌘,) で、外観(macOS に合わせる、ライト、ダーク)と 12 色から 1 色を選びます。色はウィンドウの帯、ボタン、Dock のアイコンに使われます(既定は黒)。Finder と Launchpad のアイコンは黒のままです。変えるとアプリの署名が壊れるためです。
 
 ![テーマと色](docs/img/theme-ja.png)
 
@@ -69,22 +69,22 @@ shasum -a 256 Wyrmhold-1.1.0.pkg
 
 ## クリップボード
 
-コピーはこの Mac 専用なので、ユニバーサルクリップボードでほかのデバイスに送られることはありません。また `org.nspasteboard.ConcealedType` の印が付くので、クリップボード管理アプリは履歴に残しません。「クリップボードを自動消去」がオンのとき(既定)、コピーしたパスワードは、スイッチの横で選んだ時間(10 秒、30 秒、1、2、5、10 分。変更しなければ 2 分)がたつか、Wyrmhold を終了したときやセッションを終えたときにすぐ消去されます。消去するのは、クリップボードの中身が Wyrmhold の入れたものとまったく同じ場合だけです(ペーストボードの変更回数、またはテキストの SHA-256 で判定し、テキストそのものは保持しません)。クリップボードツールが同じテキストを戻した場合も消去し、あとでコピーしたほかのものには触れません。オフにすると、ほかのものをコピーするまで残ります。`-clearafter:90`、`-clearafter:2m`、`-clearafter:off` で、保存せずにそのセッションだけ設定できます。
+コピーはこの Mac 専用なので、ユニバーサルクリップボードでほかのデバイスに送られることはありません。また `org.nspasteboard.ConcealedType` の印が付くので、クリップボード管理アプリは履歴に残しません。「クリップボードを自動消去」がオンのとき(既定)、コピーしたパスワードは、スイッチの横で選んだ時間(10 秒、30 秒、1、2、5、10 分。変更しなければ 2 分)がたつか、Forja を終了したときやセッションを終えたときにすぐ消去されます。消去するのは、クリップボードの中身が Forja の入れたものとまったく同じ場合だけです(ペーストボードの変更回数、またはテキストの SHA-256 で判定し、テキストそのものは保持しません)。クリップボードツールが同じテキストを戻した場合も消去し、あとでコピーしたほかのものには触れません。オフにすると、ほかのものをコピーするまで残ります。`-clearafter:90`、`-clearafter:2m`、`-clearafter:off` で、保存せずにそのセッションだけ設定できます。
 
 ## アップデート
 
-ヘルプ → アップデートを確認 で GitHub の最新リリースを確認します。毎日の自動確認もあります(ヘルプ → 毎日自動でアップデートを確認、設定の `CheckUpdates`)。新しいバージョンがあれば、質問は一度だけです: 今すぐアップデート、新機能を見る、後で。あとはすべて自動です。パッケージをダウンロードしてリリースの `SHA256SUMS.txt` と照合し(一致しなければ開かずに削除)、中のアプリが同じ識別子、告知されたバージョン、インストール済みアプリと同じ署名を持つことを確認します。Wyrmhold が終了し、新しいアプリが古いアプリと入れ替わって起動します。`/Applications/Wyrmhold.app` ではないコピーにはダウンロードページを、別のユーザーがインストールしたものには確認済みのパッケージをインストーラで開きます。
+ヘルプ → アップデートを確認 で GitHub の最新リリースを確認します。毎日の自動確認もあります(ヘルプ → 毎日自動でアップデートを確認、設定の `CheckUpdates`)。新しいバージョンがあれば、質問は一度だけです: 今すぐアップデート、新機能を見る、後で。あとはすべて自動です。パッケージをダウンロードしてリリースの `SHA256SUMS.txt` と照合し(一致しなければ開かずに削除)、中のアプリが同じ識別子、告知されたバージョン、インストール済みアプリと同じ署名を持つことを確認します。Forja が終了し、新しいアプリが古いアプリと入れ替わって起動します。`/Applications/Forja.app` ではないコピーにはダウンロードページを、別のユーザーがインストールしたものには確認済みのパッケージをインストーラで開きます。
 
 ## 設定
 
-設定は `~/Library/Preferences/io.github.gabriel-castiglia.wyrmhold.plist` に、Windows 版と同じ名前で保存されます。アプリがパスワードをどこかに書き込むことはありません。
+設定は `~/Library/Preferences/io.github.gabriel-castiglia.forja.plist` に、Windows 版と同じ名前で保存されます。アプリがパスワードをどこかに書き込むことはありません。
 
 ## コマンドライン
 
 アプリの中のプログラムは、ウィンドウを開かずにパスワードをファイルに書き出すこともできます。スイッチは Windows 版と同じで、ハイフンで書きます:
 
 ```
-W=/Applications/Wyrmhold.app/Contents/MacOS/Wyrmhold
+W=/Applications/Forja.app/Contents/MacOS/Forja
 $W -out:passwords.txt -count:10
 $W -out:phrases.txt -mode:words -words:7 -sep:space
 $W -entropy:bits.txt -len:16 -classes:lud
@@ -112,10 +112,10 @@ $W -entropy:bits.txt -len:16 -classes:lud
 ## ビルド
 
 ```
-git clone https://github.com/Gabriel-Castiglia/wyrmhold.git
-cd wyrmhold
-scripts/compilar.sh          # build/Wyrmhold.app
-scripts/paquete.sh           # build/Wyrmhold-<バージョン>.pkg
+git clone https://github.com/Gabriel-Castiglia/forja.git
+cd forja
+scripts/compilar.sh          # build/Forja.app
+scripts/paquete.sh           # build/Forja-<バージョン>.pkg
 ```
 
 `compilar.sh` は、初回に作る専用のキーチェーンに入れた自己発行の証明書でアプリに署名します。こうすると、ビルドを繰り返しても macOS は同じアプリとして扱います。`FIRMA=adhoc scripts/compilar.sh` はその証明書を使わずに署名し、手早く試すためのものです。バージョンは `scripts/compilar.sh` にだけ書きます。
@@ -123,7 +123,7 @@ scripts/paquete.sh           # build/Wyrmhold-<バージョン>.pkg
 テスト:
 
 ```
-B=build/Wyrmhold.app/Contents/MacOS/Wyrmhold
+B=build/Forja.app/Contents/MacOS/Forja
 $B --self-test                                  # 文字列表、アイコン、プロファイル、一覧、クリップボード
 python3 tools/check_options.py $B               # 各オプションを Python で数えた値と照合
 $B -out:/tmp/p.txt -count:100000 && python3 tools/check_passwords.py /tmp/p.txt 20 1 100000
@@ -133,7 +133,7 @@ $B -out:/tmp/p.txt -count:100000 && python3 tools/check_passwords.py /tmp/p.txt 
 
 `scripts/manual.sh` は 3 つの README から PDF マニュアルを作り、`scripts/capturas.sh` は `docs/img` の画像を作ります。`tools/make_icon.py` はアイコン(`icono/icono-1024.png`)とアプリが色を付けるレイヤー(`assets/icon_layer.wyi`)を描きます。numpy、opencv-python、scipy、Pillow を入れた Python が必要です。
 
-Wyrmhold 1.1.0 のビルドと確認に使ったツールのバージョンは、[英語の README](README.md#building-from-source) の表にあります。
+Forja 3.0.0 のビルドと確認に使ったツールのバージョンは、[英語の README](README.md#building-from-source) の表にあります。
 
 ## 構成
 
@@ -141,7 +141,7 @@ Wyrmhold 1.1.0 のビルドと確認に使ったツールのバージョンは�
 |---|---|
 | `Sources/` | アプリ本体(Swift、AppKit、SwiftUI) |
 | `Sources/Engine/` | Windows 版と共通の C のパスワードエンジンと EFF の単語リスト |
-| `assets/` | EFF の単語リスト、キルヒャーの版画、アイコンのレイヤー |
+| `assets/` | EFF の単語リスト、金床の版画とその輪郭、アイコンのレイヤー |
 | `icono/` | アプリのアイコン(1024 px) |
 | `instalador/` | インストーラパッケージのページとスクリプト |
 | `scripts/` | ビルド、パッケージ、マニュアル、画像 |
@@ -150,7 +150,7 @@ Wyrmhold 1.1.0 のビルドと確認に使ったツールのバージョンは�
 
 ## ライセンスとクレジット
 
-Copyright (C) 2026 Gabriel Castiglia. Wyrmhold は GNU 一般公衆利用許諾書 第2版のみ(GPL-2.0-only)のもとで配布されるフリーソフトウェアです。[`LICENSE`](LICENSE) を参照してください。無保証です。
+Copyright (C) 2026 Gabriel Castiglia. Forja は GNU 一般公衆利用許諾書 第2版のみ(GPL-2.0-only)のもとで配布されるフリーソフトウェアです。[`LICENSE`](LICENSE) を参照してください。無保証です。
 
 - パスフレーズの単語: Electronic Frontier Foundation の [EFF large word list](https://www.eff.org/dice)(CC BY 3.0 US)。
-- アイコン: アタナシウス・キルヒャー『地下世界』(アムステルダム、1665 年)の翼のある竜(パブリックドメイン)。
+- アイコン: ロンドンの鍛冶屋 Elwell and Taylor の商用カード(1766 年ごろ、大英博物館、パブリックドメイン)の金床と槌。

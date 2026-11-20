@@ -1,4 +1,4 @@
-// Wyrmhold: --self-test, the checks the command line cannot reach.
+// Forja: --self-test, the checks the command line cannot reach.
 // Copyright (C) 2026 Gabriel Castiglia. Licensed under the GNU GPL, version 2 only.
 // Date: November 10, 2026
 // SPDX-License-Identifier: GPL-2.0-only
@@ -116,7 +116,7 @@ enum SelfTest {
             return item
         }
         let cb = Clipboard.shared
-        let sample = "Wyrmhold-self-test-\(arc4random())"
+        let sample = "Forja-self-test-\(arc4random())"
         check("clipboard: copy", cb.copy(sample, clearLater: false) && pb.string(forType: .string) == sample)
         check("clipboard: marked concealed", pb.types?.contains(NSPasteboard.PasteboardType("org.nspasteboard.ConcealedType")) == true)
         check("clipboard: wiped when still ours", cb.wipeIfOurs() && pb.string(forType: .string) == nil)

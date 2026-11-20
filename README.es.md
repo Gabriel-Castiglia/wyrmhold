@@ -1,24 +1,25 @@
-<p align="center"><img src="icono/icono-1024.png" width="140" alt="Wyrmhold"></p>
+<p align="center"><img src="icono/icono-1024.png" width="140" alt="Forja"></p>
 
-<h1 align="center">Wyrmhold</h1>
+<h1 align="center">Forja</h1>
 <p align="center"><b>Contraseñas, frases y PIN fuertes — se hacen en tu computadora y no se guardan en ningún lado.</b></p>
 
-Gabriel Castiglia · 20 de noviembre de 2026 · versión 1.1.0 · GPL-2.0-only
+Gabriel Castiglia · 20 de noviembre de 2026 · versión 3.0.0 · GPL-2.0-only
 
 [English](README.md) · Español · [日本語](README.ja.md)
 
-Versión para Windows: <https://github.com/Gabriel-Castiglia/wyrmhold-windows>
+Versión para Windows: <https://github.com/Gabriel-Castiglia/forja-windows>
 
-Manual en PDF: [`docs/Wyrmhold-manual-es.pdf`](docs/Wyrmhold-manual-es.pdf)
+Manual en PDF: [`docs/Forja-manual-es.pdf`](docs/Forja-manual-es.pdf)
 
 > Solo para macOS 15 o posterior en Apple silicon (arm64). No hay versión para Mac con procesador Intel.
 
-Wyrmhold genera contraseñas, frases de contraseña y PIN fuertes y al azar en tu Mac: para un zip o 7z que se
+Forja genera contraseñas, frases de contraseña y PIN fuertes y al azar en tu Mac: para un zip o 7z que se
 manda por email, una cuenta nueva, una red Wi-Fi o una cerradura. No guarda ni envía nada; las contraseñas
 existen solo en la ventana hasta que las copiás o guardás. La interfaz está en español, inglés y japonés.
 
-*Wyrm* es dragón en inglés antiguo, y *hold* una fortaleza: un wyrmhold es el reducto donde un dragón cuida su
-tesoro. El ícono es el dragón alado de Athanasius Kircher (*Mundus Subterraneus*, 1665) echado sobre su torre.
+En la *forja* el metal toma forma a golpes de martillo sobre el yunque, como acá cada contraseña sale del puro azar.
+El ícono es el yunque con los martillos de la tarjeta de unos herreros de Londres (c. 1766). Hasta la versión 1.1 se
+llamaba Wyrmhold: al instalar Forja se quita, y su configuración pasa sola la primera vez que Forja arranca.
 
 ![La ventana principal](docs/img/window-es.png)
 
@@ -29,26 +30,26 @@ tesoro. El ícono es el dragón alado de Athanasius Kircher (*Mundus Subterraneu
 
 ## Instalación
 
-Bajá `Wyrmhold-<versión>.pkg` de la [página de versiones](https://github.com/Gabriel-Castiglia/wyrmhold/releases/latest)
-y abrilo. El instalador está en español, inglés o japonés, según el idioma de la Mac. Pone `Wyrmhold.app` en
+Bajá `Forja-<versión>.pkg` de la [página de versiones](https://github.com/Gabriel-Castiglia/forja/releases/latest)
+y abrilo. El instalador está en español, inglés o japonés, según el idioma de la Mac. Pone `Forja.app` en
 `/Applications` y, si había una copia abierta, la cierra antes; instalar un paquete más nuevo conserva la
 configuración.
 
 El paquete no está firmado con un Developer ID de Apple, así que la primera vez macOS no lo abre («Apple no
 pudo verificar…»). Abrí Configuración del Sistema → Privacidad y seguridad, bajá hasta el aviso sobre
-`Wyrmhold-<versión>.pkg`, hacé clic en Abrir igualmente y confirmá. Con el archivo `SHA256SUMS.txt` de cada
+`Forja-<versión>.pkg`, hacé clic en Abrir igualmente y confirmá. Con el archivo `SHA256SUMS.txt` de cada
 versión podés comprobar la descarga antes:
 
 ```
-shasum -a 256 Wyrmhold-1.1.0.pkg
+shasum -a 256 Forja-3.0.0.pkg
 ```
 
-Para desinstalarlo, cerrá Wyrmhold, arrastrá `/Applications/Wyrmhold.app` a la papelera y, si querés borrar
-también la configuración, corré `defaults delete io.github.gabriel-castiglia.wyrmhold`.
+Para desinstalarlo, cerrá Forja, arrastrá `/Applications/Forja.app` a la papelera y, si querés borrar
+también la configuración, corré `defaults delete io.github.gabriel-castiglia.forja`.
 
 ## Uso
 
-La primera vez, Wyrmhold abre en el idioma de la Mac si es español o japonés, y en inglés si no; el menú Idioma
+La primera vez, Forja abre en el idioma de la Mac si es español o japonés, y en inglés si no; el menú Idioma
 lo cambia en cualquier momento.
 
 1. Elegí el tipo arriba: Caracteres, Frase o PIN (⌘1, ⌘2, ⌘3). Al lado, el menú Perfil trae configuraciones
@@ -85,7 +86,7 @@ rechazados en Excluir.
 
 ### Tema y color
 
-Wyrmhold → Tema y color… (⌘,) elige la apariencia (como macOS, claro u oscuro) y uno de doce colores. El color
+Forja → Tema y color… (⌘,) elige la apariencia (como macOS, claro u oscuro) y uno de doce colores. El color
 tiñe la franja de la ventana, los botones y el ícono en el Dock; el negro es el de fábrica. El ícono en el
 Finder y en Launchpad sigue negro, porque cambiarlo rompería la firma de la app.
 
@@ -111,8 +112,8 @@ Cada copia es solo para esta Mac, así que el Portapapeles Universal nunca la pa
 marcada `org.nspasteboard.ConcealedType`, que los gestores de portapapeles respetan dejándola fuera de su
 historial. Con «Borrar portapapeles a los» encendido (viene así), una contraseña copiada se borra cuando pasa el
 tiempo elegido al lado del interruptor (10 s, 30 s, 1, 2, 5 o 10 minutos; 2 minutos si no lo cambiás), o enseguida
-al salir de Wyrmhold o al cerrar la sesión. Se borra solo si el portapapeles sigue teniendo exactamente lo que puso
-Wyrmhold: el contador de cambios del portapapeles, o si no un SHA-256 de su texto (el texto nunca se guarda), así que
+al salir de Forja o al cerrar la sesión. Se borra solo si el portapapeles sigue teniendo exactamente lo que puso
+Forja: el contador de cambios del portapapeles, o si no un SHA-256 de su texto (el texto nunca se guarda), así que
 el mismo texto devuelto por una herramienta de portapapeles se borra igual y lo que copies después queda intacto.
 Apagado, lo copiado queda hasta que copies otra cosa. `-clearafter:90`, `-clearafter:2m` o `-clearafter:off` lo
 fija para una sesión sin guardarlo.
@@ -123,13 +124,13 @@ Ayuda → Buscar actualizaciones le pregunta a GitHub por la última versión, y
 Buscar actualizaciones todos los días, `CheckUpdates` en la configuración). Si hay una más nueva, una sola pregunta:
 Actualizar ahora, Ver novedades o Más tarde. Después todo pasa solo: el paquete se descarga y se compara con el
 `SHA256SUMS.txt` de la versión (si no coincide se borra sin abrirlo); la app que trae tiene que tener el mismo
-identificador, la versión anunciada y una firma que cumpla la de la app instalada. Wyrmhold se cierra, la app nueva
-ocupa el lugar de la vieja y se abre. Una copia que no es `/Applications/Wyrmhold.app` recibe la página de descarga;
+identificador, la versión anunciada y una firma que cumpla la de la app instalada. Forja se cierra, la app nueva
+ocupa el lugar de la vieja y se abre. Una copia que no es `/Applications/Forja.app` recibe la página de descarga;
 una instalada por otro usuario abre el paquete ya comprobado en el Instalador.
 
 ## Configuración
 
-Se guarda en `~/Library/Preferences/io.github.gabriel-castiglia.wyrmhold.plist`, con los mismos nombres que usa
+Se guarda en `~/Library/Preferences/io.github.gabriel-castiglia.forja.plist`, con los mismos nombres que usa
 la versión para Windows. La app nunca escribe las contraseñas en ningún lado.
 
 ## Línea de comandos
@@ -138,7 +139,7 @@ El programa que está dentro de la app también escribe contraseñas en un archi
 opciones de la versión para Windows escritas con guion:
 
 ```
-W=/Applications/Wyrmhold.app/Contents/MacOS/Wyrmhold
+W=/Applications/Forja.app/Contents/MacOS/Forja
 $W -out:contraseñas.txt -count:10
 $W -out:frases.txt -mode:words -words:7 -sep:space
 $W -entropy:bits.txt -len:16 -classes:lud
@@ -168,10 +169,10 @@ posible.
 ## Compilar
 
 ```
-git clone https://github.com/Gabriel-Castiglia/wyrmhold.git
-cd wyrmhold
-scripts/compilar.sh          # build/Wyrmhold.app
-scripts/paquete.sh           # build/Wyrmhold-<versión>.pkg
+git clone https://github.com/Gabriel-Castiglia/forja.git
+cd forja
+scripts/compilar.sh          # build/Forja.app
+scripts/paquete.sh           # build/Forja-<versión>.pkg
 ```
 
 `compilar.sh` firma la app con un certificado propio guardado en su propio llavero, que crea la primera vez,
@@ -181,7 +182,7 @@ certificado, para una prueba rápida. La versión se escribe solo en `scripts/co
 Las pruebas:
 
 ```
-B=build/Wyrmhold.app/Contents/MacOS/Wyrmhold
+B=build/Forja.app/Contents/MacOS/Forja
 $B --self-test                                  # textos, ícono, perfiles, lista, portapapeles
 python3 tools/check_options.py $B               # cada opción contra una cuenta hecha en Python
 $B -out:/tmp/p.txt -count:100000 && python3 tools/check_passwords.py /tmp/p.txt 20 1 100000
@@ -196,7 +197,7 @@ parejos (chi cuadrado).
 `docs/img`. `tools/make_icon.py` dibuja el ícono (`icono/icono-1024.png`) y la capa que la app tiñe
 (`assets/icon_layer.wyi`); necesita Python con numpy, opencv-python, scipy y Pillow.
 
-Las herramientas con que se compiló y probó Wyrmhold 1.1.0 están en la tabla del
+Las herramientas con que se compiló y probó Forja 3.0.0 están en la tabla del
 [README en inglés](README.md#building-from-source).
 
 ## Estructura
@@ -205,7 +206,7 @@ Las herramientas con que se compiló y probó Wyrmhold 1.1.0 están en la tabla 
 |---|---|
 | `Sources/` | La app (Swift, AppKit y SwiftUI) |
 | `Sources/Engine/` | El motor de contraseñas en C, el mismo de la versión para Windows, y la lista EFF |
-| `assets/` | La lista EFF, el grabado de Kircher y la capa del ícono |
+| `assets/` | La lista EFF, el grabado del yunque con su contorno y la capa del ícono |
 | `icono/` | El ícono de la app, 1024 px |
 | `instalador/` | Las páginas y el script del paquete instalador |
 | `scripts/` | Compilar, empaquetar, manuales e imágenes |
@@ -214,9 +215,9 @@ Las herramientas con que se compiló y probó Wyrmhold 1.1.0 están en la tabla 
 
 ## Licencia y créditos
 
-Copyright (C) 2026 Gabriel Castiglia. Wyrmhold es software libre bajo la GNU General Public License, versión 2
+Copyright (C) 2026 Gabriel Castiglia. Forja es software libre bajo la GNU General Public License, versión 2
 únicamente (GPL-2.0-only); ver [`LICENSE`](LICENSE). Se distribuye sin ninguna garantía.
 
 - Palabras de las frases: la [lista grande de la EFF](https://www.eff.org/dice), de la Electronic Frontier
   Foundation, bajo CC BY 3.0 US.
-- Ícono: el dragón alado de Athanasius Kircher, *Mundus Subterraneus* (Ámsterdam, 1665), dominio público.
+- Ícono: el yunque y los martillos de la tarjeta de Elwell and Taylor, herreros de Londres (c. 1766), British Museum, de dominio público.

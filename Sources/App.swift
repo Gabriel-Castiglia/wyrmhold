@@ -1,4 +1,4 @@
-// Wyrmhold: start-up, menus and windows.
+// Forja: start-up, menus and windows.
 // Copyright (C) 2026 Gabriel Castiglia. Licensed under the GNU GPL, version 2 only.
 // Date: November 10, 2026
 // SPDX-License-Identifier: GPL-2.0-only
@@ -141,8 +141,8 @@ final class AppDelegate: NSObject, NSApplicationDelegate, NSWindowDelegate {
         }
 
         let up = SelfUpdate.shared
-        up.appName = "Wyrmhold"
-        up.repo = "Gabriel-Castiglia/wyrmhold"
+        up.appName = "Forja"
+        up.repo = "Gabriel-Castiglia/forja"
         up.version = appVersion
         up.language = { [weak self] in ["en", "ja", "es"][self?.m.lang.rawValue ?? 0] }
         up.dailyCheckOn = { [weak self] in self?.m.checkUpdates ?? false }
@@ -252,7 +252,7 @@ final class AppDelegate: NSObject, NSApplicationDelegate, NSWindowDelegate {
     /// The menu bar, in the app's language.
     func buildMenus() {
         let t = m.T, l = m.label
-        let name = "Wyrmhold"
+        let name = "Forja"
         let bar = NSMenu()
         let x = m.extra
 

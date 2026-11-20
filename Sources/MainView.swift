@@ -1,4 +1,4 @@
-// Wyrmhold: the main window.
+// Forja: the main window.
 // Copyright (C) 2026 Gabriel Castiglia. Licensed under the GNU GPL, version 2 only.
 // Date: November 10, 2026
 // SPDX-License-Identifier: GPL-2.0-only
@@ -466,4 +466,4 @@ struct StatusLine: View {
 }
 
 let appVersion = Bundle.main.object(forInfoDictionaryKey: "CFBundleShortVersionString") as? String ?? "0.0.0"
-let appRepo = "github.com/Gabriel-Castiglia/wyrmhold"
+let appRepo = "github.com/Gabriel-Castiglia/forja"

@@ -1,5 +1,5 @@
 """
-Wyrmhold -- builds Sources/Engine/wordlist.h from assets/eff_large_wordlist.txt.
+Forja -- builds Sources/Engine/wordlist.h from assets/eff_large_wordlist.txt.
 Copyright (C) 2026 Gabriel Castiglia. Licensed under the GNU GPL, version 2 only.
 Date: November 10, 2026
 SPDX-License-Identifier: GPL-2.0-only
@@ -30,7 +30,7 @@ assert all(w and all(c.isascii() and (c.islower() or c == "-") for c in w) for w
 
 lines = [
     "/**",
-    "  Wyrmhold -- the passphrase word list.",
+    "  Forja -- the passphrase word list.",
     "  Copyright (C) 2026 Gabriel Castiglia. Licensed under the GNU GPL, version 2 only.",
     "  Date: November 10, 2026",
     "  SPDX-License-Identifier: GPL-2.0-only",

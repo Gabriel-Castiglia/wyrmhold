@@ -1,5 +1,5 @@
 """
-Wyrmhold -- checks a file written with -out against the standard
+Forja -- checks a file written with -out against the standard
 rules (the four classes, basic symbols), independently of the C code.
 Copyright (C) 2026 Gabriel Castiglia. Licensed under the GNU GPL, version 2 only.
 Date: November 9, 2026

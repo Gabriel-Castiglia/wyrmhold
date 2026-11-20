@@ -1,4 +1,4 @@
-// Wyrmhold: the Theme and colour, Help and About windows.
+// Forja: the Theme and colour, Help and About windows.
 // Copyright (C) 2026 Gabriel Castiglia. Licensed under the GNU GPL, version 2 only.
 // Date: November 10, 2026
 // SPDX-License-Identifier: GPL-2.0-only
@@ -6,7 +6,7 @@
 import AppKit
 import SwiftUI
 
-let appDate = Bundle.main.object(forInfoDictionaryKey: "WyrmholdDate") as? String ?? ""
+let appDate = Bundle.main.object(forInfoDictionaryKey: "ForjaDate") as? String ?? ""
 
 struct ThemeView: View {
     @ObservedObject var m: AppModel

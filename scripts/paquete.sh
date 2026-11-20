@@ -1,5 +1,5 @@
 #!/bin/zsh
-# paquete.sh: builds the installer package build/Wyrmhold-<version>.pkg.
+# paquete.sh: builds the installer package build/Forja-<version>.pkg.
 #
 # Copyright (C) 2026 Gabriel Castiglia. Licensed under the GNU GPL, version 2 only.
 # Date: November 10, 2026
@@ -9,7 +9,7 @@
 # the GNU General Public License, version 2, as published by the Free Software Foundation.
 # It is distributed WITHOUT ANY WARRANTY. See the LICENSE file for details.
 #
-# The package installs /Applications/Wyrmhold.app; a running Wyrmhold is closed first
+# The package installs /Applications/Forja.app; a running Forja is closed first
 # (instalador/scripts/preinstall). Its pages are in English, Japanese and Spanish
 # (instalador/resources/*.lproj); macOS Installer shows the language of the Mac. The package
 # itself is not signed: that needs an Apple Developer ID.
@@ -19,23 +19,23 @@ RAIZ="${0:A:h:h}"
 cd "$RAIZ"
 
 scripts/compilar.sh
-export VERSION=$(/usr/libexec/PlistBuddy -c 'Print CFBundleShortVersionString' build/Wyrmhold.app/Contents/Info.plist)
+export VERSION=$(/usr/libexec/PlistBuddy -c 'Print CFBundleShortVersionString' build/Forja.app/Contents/Info.plist)
 # Fills in @VERSION@ (passed through the environment, never through a sed pattern).
 rellenar() { perl -pe 's/\@VERSION\@/$ENV{VERSION}/g' "$1" > "$2" }
 
 TRABAJO=build/pkg
 rm -rf $TRABAJO
 mkdir -p $TRABAJO/raiz/Applications $TRABAJO/recursos
-ditto build/Wyrmhold.app $TRABAJO/raiz/Applications/Wyrmhold.app
+ditto build/Forja.app $TRABAJO/raiz/Applications/Forja.app
 
 # Never relocate: install to /Applications even if another copy is registered elsewhere.
 pkgbuild --analyze --root $TRABAJO/raiz $TRABAJO/componente.plist >/dev/null
 plutil -replace 0.BundleIsRelocatable -bool NO $TRABAJO/componente.plist
 
 pkgbuild --root $TRABAJO/raiz --component-plist $TRABAJO/componente.plist \
-    --identifier io.github.gabriel-castiglia.wyrmhold.pkg --version $VERSION \
+    --identifier io.github.gabriel-castiglia.forja.pkg --version $VERSION \
     --install-location / --scripts instalador/scripts \
-    $TRABAJO/Wyrmhold-component.pkg >/dev/null
+    $TRABAJO/Forja-component.pkg >/dev/null
 
 for idioma in en ja es; do
     mkdir -p $TRABAJO/recursos/$idioma.lproj
@@ -46,15 +46,15 @@ for idioma in en ja es; do
 done
 rellenar instalador/Distribution.xml $TRABAJO/Distribution.xml
 
-SALIDA=build/Wyrmhold-$VERSION.pkg
+SALIDA=build/Forja-$VERSION.pkg
 productbuild --distribution $TRABAJO/Distribution.xml --resources $TRABAJO/recursos \
     --package-path $TRABAJO $SALIDA >/dev/null
 rm -rf $TRABAJO
 
 # Remove the build copy from the app register, so Spotlight lists only the installed one.
 LSREGISTER=/System/Library/Frameworks/CoreServices.framework/Versions/A/Frameworks/LaunchServices.framework/Versions/A/Support/lsregister
-$LSREGISTER -u "$RAIZ/build/Wyrmhold.app" 2>/dev/null || true
-rm -rf build/Wyrmhold.app
+$LSREGISTER -u "$RAIZ/build/Forja.app" 2>/dev/null || true
+rm -rf build/Forja.app
 
 echo "Built: $RAIZ/$SALIDA"
 (cd build && shasum -a 256 ${SALIDA:t})

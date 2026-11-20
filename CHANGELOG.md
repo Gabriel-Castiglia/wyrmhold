@@ -1,5 +1,17 @@
 # Changelog
 
+## 3.0.0 — 2026-11-20
+
+**Wyrmhold is now Forja**, a name easier to remember: the forge, where metal takes shape under the hammer, as each
+password here takes shape from pure chance. From this version the Mac and Windows versions share one number. The
+icon is the anvil and hammers of the trade card of Elwell and Taylor, smiths of London (c. 1766, British Museum,
+public domain). The repository is now `forja` (GitHub forwards the old address).
+
+- The app is `/Applications/Forja.app`, with the identifier `io.github.gabriel-castiglia.forja`; the package is
+  `Forja-<version>.pkg`, and installing it closes and removes Wyrmhold.
+- The first time Forja starts, the settings of Wyrmhold come over.
+- The texts of the update question name the app apart from its file name (shared with the other apps).
+
 ## 1.1.0 — 2026-11-20
 
 What Wyrmhold 2.1.0 for Windows brought, on the Mac.

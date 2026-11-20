@@ -1,25 +1,25 @@
-<p align="center"><img src="icono/icono-1024.png" width="140" alt="Wyrmhold"></p>
+<p align="center"><img src="icono/icono-1024.png" width="140" alt="Forja"></p>
 
-<h1 align="center">Wyrmhold</h1>
+<h1 align="center">Forja</h1>
 <p align="center"><b>Strong passwords, passphrases and PINs — made on your computer, stored nowhere.</b></p>
 
-Gabriel Castiglia · November 20, 2026 · version 1.1.0 · GPL-2.0-only
+Gabriel Castiglia · November 20, 2026 · version 3.0.0 · GPL-2.0-only
 
 English · [Español](README.es.md) · [日本語](README.ja.md)
 
-Windows version: <https://github.com/Gabriel-Castiglia/wyrmhold-windows>
+Windows version: <https://github.com/Gabriel-Castiglia/forja-windows>
 
-PDF manual: [`docs/Wyrmhold-manual-en.pdf`](docs/Wyrmhold-manual-en.pdf)
+PDF manual: [`docs/Forja-manual-en.pdf`](docs/Forja-manual-en.pdf)
 
 > macOS 15 or later on Apple silicon (arm64) only. There is no build for Macs with an Intel processor.
 
-Wyrmhold makes strong random passwords, passphrases and PINs on your Mac: for a zip or 7z file sent by email,
+Forja makes strong random passwords, passphrases and PINs on your Mac: for a zip or 7z file sent by email,
 a new account, a Wi-Fi network or a lock. Nothing is stored or sent anywhere; the passwords exist only in the
 window until you copy or save them. The interface is in English, Japanese and Spanish.
 
-*Wyrm* is the Old English word for dragon, and *hold* a stronghold: a wyrmhold is the dragon's keep, where a
-dragon guards its hoard. The icon is Athanasius Kircher's winged dragon (*Mundus Subterraneus*, 1665) lying on
-its tower.
+*Forja* is Spanish for forge, where metal takes shape under the hammer, on the anvil, as each password here takes
+shape from pure chance. The icon is the anvil and hammers of a London smiths' trade card (c. 1766). Until version 1.1
+it was called Wyrmhold: installing Forja removes it, and its settings come over the first time Forja starts.
 
 ![The main window](docs/img/window-en.png)
 
@@ -30,26 +30,26 @@ its tower.
 
 ## Installation
 
-Download `Wyrmhold-<version>.pkg` from the
-[releases page](https://github.com/Gabriel-Castiglia/wyrmhold/releases/latest) and open it. The installer speaks
-English, Japanese or Spanish, following the language of the Mac. It puts `Wyrmhold.app` in `/Applications`,
+Download `Forja-<version>.pkg` from the
+[releases page](https://github.com/Gabriel-Castiglia/forja/releases/latest) and open it. The installer speaks
+English, Japanese or Spanish, following the language of the Mac. It puts `Forja.app` in `/Applications`,
 closing a running copy first; installing a newer package keeps the settings.
 
 The package is not signed with an Apple Developer ID, so the first time macOS refuses to open it ("Apple
 could not verify…"). Open System Settings → Privacy & Security, scroll to the message about
-`Wyrmhold-<version>.pkg`, click Open Anyway and confirm. The `SHA256SUMS.txt` file of each release lets you
+`Forja-<version>.pkg`, click Open Anyway and confirm. The `SHA256SUMS.txt` file of each release lets you
 check the download first:
 
 ```
-shasum -a 256 Wyrmhold-1.1.0.pkg
+shasum -a 256 Forja-3.0.0.pkg
 ```
 
-To uninstall, quit Wyrmhold, drag `/Applications/Wyrmhold.app` to the Trash and, to remove the settings too,
-run `defaults delete io.github.gabriel-castiglia.wyrmhold`.
+To uninstall, quit Forja, drag `/Applications/Forja.app` to the Trash and, to remove the settings too,
+run `defaults delete io.github.gabriel-castiglia.forja`.
 
 ## Using it
 
-The first time, Wyrmhold opens in the language of the Mac if it is Japanese or Spanish, and in English
+The first time, Forja opens in the language of the Mac if it is Japanese or Spanish, and in English
 otherwise; the Language menu changes it at any moment.
 
 1. Choose the kind at the top: Characters, Passphrase or PIN (⌘1, ⌘2, ⌘3). Next to it, the Profile menu
@@ -84,7 +84,7 @@ with exactly the symbols the site lists, or type the refused characters in Leave
 
 ### Theme and colour
 
-Wyrmhold → Theme and colour… (⌘,) chooses the appearance (as macOS, light or dark) and
+Forja → Theme and colour… (⌘,) chooses the appearance (as macOS, light or dark) and
 one of twelve colours. The colour tints the window band, the buttons and the icon in the Dock; black is the
 default. The icon in Finder and Launchpad stays black, because changing it would break the app's signature.
 
@@ -109,8 +109,8 @@ an attacker who has the file and tries 100 billion passwords a second. The defau
 Every copy is for this Mac only, so Universal Clipboard never sends it to your other devices, and it is marked
 `org.nspasteboard.ConcealedType`, which clipboard managers honour by leaving it out of their history. With
 "Clear clipboard after" on (the default), a copied password is wiped when the time chosen beside the switch is up
-(10 s, 30 s, 1, 2, 5 or 10 minutes; 2 minutes unless you change it), or at once when Wyrmhold quits or the session
-ends. It is wiped only while the clipboard still holds exactly what Wyrmhold put there: the pasteboard's change count,
+(10 s, 30 s, 1, 2, 5 or 10 minutes; 2 minutes unless you change it), or at once when Forja quits or the session
+ends. It is wiped only while the clipboard still holds exactly what Forja put there: the pasteboard's change count,
 or else a SHA-256 of its text (the text itself is never kept), so the same text put back by a clipboard tool is still
 wiped and anything else you copy is left alone. Switched off, copies stay until you copy something else.
 `-clearafter:90`, `-clearafter:2m` or `-clearafter:off` sets it for one session without saving it.
@@ -121,13 +121,13 @@ Help → Check for Updates asks GitHub for the latest release, and so does a dai
 Daily, `CheckUpdates` in the settings). When there is a newer one, one question: Update now, What's new or Later.
 Then it all happens alone: the package is downloaded and checked against the release's `SHA256SUMS.txt` (deleted and
 never opened if it does not match); the app inside it must have the same identifier, the version announced and a
-signature that meets the one of the installed app. Wyrmhold quits, the new app takes the place of the old one and
-opens. A copy that is not `/Applications/Wyrmhold.app` is offered the download page; one installed by another user
+signature that meets the one of the installed app. Forja quits, the new app takes the place of the old one and
+opens. A copy that is not `/Applications/Forja.app` is offered the download page; one installed by another user
 opens the checked package in Installer.
 
 ## Settings
 
-The settings are kept in `~/Library/Preferences/io.github.gabriel-castiglia.wyrmhold.plist`, under the same
+The settings are kept in `~/Library/Preferences/io.github.gabriel-castiglia.forja.plist`, under the same
 names the Windows version uses. The passwords are never written anywhere by the app.
 
 ## Command line
@@ -136,7 +136,7 @@ The program inside the app also writes passwords to a file with no window, with 
 version written with a dash:
 
 ```
-W=/Applications/Wyrmhold.app/Contents/MacOS/Wyrmhold
+W=/Applications/Forja.app/Contents/MacOS/Forja
 $W -out:passwords.txt -count:10
 $W -out:phrases.txt -mode:words -words:7 -sep:space
 $W -entropy:bits.txt -len:16 -classes:lud
@@ -165,10 +165,10 @@ file could not be written, 3 no password could be drawn, 5 the options cannot ma
 ## Building from source
 
 ```
-git clone https://github.com/Gabriel-Castiglia/wyrmhold.git
-cd wyrmhold
-scripts/compilar.sh          # build/Wyrmhold.app
-scripts/paquete.sh           # build/Wyrmhold-<version>.pkg
+git clone https://github.com/Gabriel-Castiglia/forja.git
+cd forja
+scripts/compilar.sh          # build/Forja.app
+scripts/paquete.sh           # build/Forja-<version>.pkg
 ```
 
 `compilar.sh` signs the app with a self-issued certificate kept in its own keychain, created on the first run,
@@ -178,7 +178,7 @@ certificate, for a quick test. The version is written only in `scripts/compilar.
 The checks:
 
 ```
-B=build/Wyrmhold.app/Contents/MacOS/Wyrmhold
+B=build/Forja.app/Contents/MacOS/Forja
 $B --self-test                                  # text tables, icon, profiles, list, clipboard
 python3 tools/check_options.py $B               # every option against a count made in Python
 $B -out:/tmp/p.txt -count:100000 && python3 tools/check_passwords.py /tmp/p.txt 20 1 100000
@@ -193,7 +193,7 @@ characters (chi-square).
 `docs/img`. `tools/make_icon.py` draws the icon (`icono/icono-1024.png`) and the layer the app tints
 (`assets/icon_layer.wyi`); it needs Python with numpy, opencv-python, scipy and Pillow.
 
-Wyrmhold 1.1.0 was built and checked with:
+Forja 3.0.0 was built and checked with:
 
 | Tool | Version |
 |---|---|
@@ -210,7 +210,7 @@ Wyrmhold 1.1.0 was built and checked with:
 |---|---|
 | `Sources/` | The app (Swift, AppKit and SwiftUI) |
 | `Sources/Engine/` | The password engine in C, shared with the Windows version, and the EFF word list |
-| `assets/` | The EFF word list, the Kircher engraving and the icon layer |
+| `assets/` | The EFF word list, the anvil engraving with its outline, and the icon layer |
 | `icono/` | The app icon, 1024 px |
 | `instalador/` | The pages and the script of the installer package |
 | `scripts/` | Build, package, manuals and pictures |
@@ -219,9 +219,9 @@ Wyrmhold 1.1.0 was built and checked with:
 
 ## License and credits
 
-Copyright (C) 2026 Gabriel Castiglia. Wyrmhold is free software under the GNU General Public License, version 2
+Copyright (C) 2026 Gabriel Castiglia. Forja is free software under the GNU General Public License, version 2
 only (GPL-2.0-only); see [`LICENSE`](LICENSE). It comes with no warranty.
 
 - Passphrase words: the [EFF large word list](https://www.eff.org/dice), by the Electronic Frontier
   Foundation, under CC BY 3.0 US.
-- Icon: the winged dragon of Athanasius Kircher, *Mundus Subterraneus* (Amsterdam, 1665), public domain.
+- Icon: the anvil and hammers of the trade card of Elwell and Taylor, smiths of London (c. 1766), British Museum, public domain.

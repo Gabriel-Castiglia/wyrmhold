@@ -1,0 +1,87 @@
+{
+ "src": "anvil_elwell_taylor_bm.png",
+ "crop": [
+  0,
+  0,
+  230,
+  200
+ ],
+ "auto": true,
+ "threshold": 0.76,
+ "close": 7,
+ "min_area": 120,
+ "pad": 0.12,
+ "shapes": [
+  [
+   [
+    54,
+    27
+   ],
+   [
+    86,
+    27
+   ],
+   [
+    92,
+    60
+   ],
+   [
+    132,
+    60
+   ],
+   [
+    137,
+    27
+   ],
+   [
+    170,
+    27
+   ],
+   [
+    178,
+    74
+   ],
+   [
+    204,
+    94
+   ],
+   [
+    206,
+    108
+   ],
+   [
+    176,
+    112
+   ],
+   [
+    165,
+    140
+   ],
+   [
+    172,
+    160
+   ],
+   [
+    48,
+    160
+   ],
+   [
+    56,
+    140
+   ],
+   [
+    52,
+    112
+   ],
+   [
+    42,
+    110
+   ],
+   [
+    44,
+    78
+   ]
+  ]
+ ],
+ "_source": "Trade card of Elwell and Taylor, smiths, ironmongers and braziers, London (c. 1766), engraving. British Museum, Heal 85.99; public domain on Wikimedia Commons: https://commons.wikimedia.org/wiki/File:Print,_trade-card_(BM_Heal,85.99).jpg"
+}

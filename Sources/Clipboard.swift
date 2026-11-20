@@ -1,4 +1,4 @@
-// Wyrmhold: copying passwords, and wiping them from the clipboard.
+// Forja: copying passwords, and wiping them from the clipboard.
 // Copyright (C) 2026 Gabriel Castiglia. Licensed under the GNU GPL, version 2 only.
 // Date: November 20, 2026
 // SPDX-License-Identifier: GPL-2.0-only
@@ -10,7 +10,7 @@
 //     leave a password out of their history (nspasteboard.org).
 // With "Clear clipboard after" on, the copy is wiped when the chosen time is up (2 minutes by
 // default), or at once when the app quits (the session ending too). It is wiped only while the
-// clipboard still holds exactly what Wyrmhold put there: the pasteboard's change count, or else a
+// clipboard still holds exactly what Forja put there: the pasteboard's change count, or else a
 // SHA-256 of its text (the text itself is never kept). The same text put back by a clipboard tool
 // is still wiped; anything else copied afterwards is left alone.
 

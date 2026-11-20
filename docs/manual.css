@@ -1,5 +1,5 @@
 /*
- * manual.css: stylesheet for Wyrmhold's PDF manuals (used by scripts/manual.sh).
+ * manual.css: stylesheet for Forja's PDF manuals (used by scripts/manual.sh).
  *
  * Copyright (C) 2026 Gabriel Castiglia. Licensed under the GNU GPL, version 2 only.
  * Date: November 10, 2026
@@ -88,5 +88,5 @@ th, td { border: 1px solid var(--linea); padding: 5px 7px; text-align: left; ver
 th { background: var(--fondo-codigo); }
 td code { overflow-wrap: anywhere; }
 
-/* Wyrmhold: the screenshots fit the page width, with a light frame. */
+/* Forja: the screenshots fit the page width, with a light frame. */
 p > img { max-width: 100%; border: 1px solid var(--linea); border-radius: 6px; }

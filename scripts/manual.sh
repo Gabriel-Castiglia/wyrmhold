@@ -1,8 +1,8 @@
 #!/bin/zsh
 # manual.sh: builds the PDF manuals from the READMEs.
-#   README.md     -> docs/Wyrmhold-manual-en.pdf
-#   README.es.md  -> docs/Wyrmhold-manual-es.pdf
-#   README.ja.md  -> docs/Wyrmhold-manual-ja.pdf
+#   README.md     -> docs/Forja-manual-en.pdf
+#   README.es.md  -> docs/Forja-manual-es.pdf
+#   README.ja.md  -> docs/Forja-manual-ja.pdf
 #
 # Copyright (C) 2026 Gabriel Castiglia. Licensed under the GNU GPL, version 2 only.
 # Date: November 10, 2026
@@ -19,7 +19,7 @@ set -euo pipefail
 RAIZ="${0:A:h:h}"
 cd "$RAIZ"
 
-REPO="https://github.com/Gabriel-Castiglia/wyrmhold"
+REPO="https://github.com/Gabriel-Castiglia/forja"
 CHROME="/Applications/Google Chrome.app/Contents/MacOS/Google Chrome"
 
 command -v pandoc >/dev/null || { echo "pandoc is missing: brew install pandoc" >&2; exit 1; }
@@ -33,7 +33,7 @@ cat > "$TEMPORAL/portada.html" <<HTML
 <div class="portada">
   <img src="icono/icono-1024.png" alt="">
   <div>
-    <p class="nombre">Wyrmhold</p>
+    <p class="nombre">Forja</p>
     <p class="repo"><a href="$REPO">${REPO#https://}</a></p>
   </div>
 </div>
@@ -70,6 +70,6 @@ generar() {
     echo "Manual: $salida"
 }
 
-generar README.md    en "Wyrmhold · Manual"            docs/Wyrmhold-manual-en.pdf
-generar README.es.md es "Wyrmhold · Manual de usuario" docs/Wyrmhold-manual-es.pdf
-generar README.ja.md ja "Wyrmhold · ユーザーマニュアル"   docs/Wyrmhold-manual-ja.pdf
+generar README.md    en "Forja · Manual"            docs/Forja-manual-en.pdf
+generar README.es.md es "Forja · Manual de usuario" docs/Forja-manual-es.pdf
+generar README.ja.md ja "Forja · ユーザーマニュアル"   docs/Forja-manual-ja.pdf

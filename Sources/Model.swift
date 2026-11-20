@@ -1,4 +1,4 @@
-// Wyrmhold: the settings, the passwords on screen, profiles and strength.
+// Forja: the settings, the passwords on screen, profiles and strength.
 // Copyright (C) 2026 Gabriel Castiglia. Licensed under the GNU GPL, version 2 only.
 // Date: November 10, 2026
 // SPDX-License-Identifier: GPL-2.0-only

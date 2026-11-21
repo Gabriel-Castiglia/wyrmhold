@@ -93,3 +93,5 @@ else
 fi
 
 echo "Built: $RAIZ/$APP (version $VERSION)"
+# The copy built here stays out of the app registry, or Spotlight lists it next to the installed one (21-nov-2026).
+/System/Library/Frameworks/CoreServices.framework/Frameworks/LaunchServices.framework/Support/lsregister -u "${${:-$RAIZ/$APP}:A}" 2>/dev/null || true
